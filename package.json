@@ -1,0 +1,21 @@
+{
+  "name": "homepi-ac",
+  "version": "0.0.1",
+  "description": "Embedded HomeKit bridge for ANAVI Infrared pHAT (personal use).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zachary Waldowski <zach@waldowski.me> (https://waldowski.me)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zwaldowski/homepi-ac.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/zwaldowski/homepi-ac",
+  "dependencies": {
+    "commander": "^2.11.0",
+    "htu21d-i2c": "^0.1.0",
+    "lirc_node": "0.0.4"
+  }
+}

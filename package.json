@@ -12,9 +12,13 @@
     "url": "https://github.com/zwaldowski/homepi-ac.git"
   },
   "license": "MIT",
+  "bin": {
+    "homepi-ac": "./index-server.js"
+  },
   "homepage": "https://github.com/zwaldowski/homepi-ac",
   "dependencies": {
     "commander": "^2.11.0",
+    "hap-nodejs": "^0.4.32",
     "htu21d-i2c": "^0.1.0",
     "lirc_node": "0.0.4"
   }

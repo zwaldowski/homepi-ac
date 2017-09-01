@@ -147,7 +147,6 @@ thermostat.getCharacteristic(Characteristic.TargetTemperature)
   .on('set', function(newInC, callback){
     const oldInF = Math.round(celsiusToFahrenheit(stateData.temperature))
     const newInF = Math.round(celsiusToFahrenheit(newInC))
-    newInC = Math.round(fahrenheitToCelsius(newInF) * 0.5) / 0.5
 
     stateData.temperature = newInC
 
@@ -159,7 +158,7 @@ thermostat.getCharacteristic(Characteristic.TargetTemperature)
           callback(error)
         } else {
           function handleNext(command, stepsRemaining){
-            if (stepsRemaining >= 1) {
+            if (stepsRemaining > 0) {
               lirc_node.irsend.send_once(program.device, command, function(){
                 handleNext(command, stepsRemaining - 1)
               })

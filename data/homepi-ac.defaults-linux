@@ -1,0 +1,1 @@
+HOMEPI_AC_OPTS="-d lirc-device-name -c 000-00-000 -s best-serial-number-ever"

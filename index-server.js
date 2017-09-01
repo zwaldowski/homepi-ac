@@ -96,7 +96,7 @@ lirc_node.init()
 
 var stateData = {
   'heatingCoolingState': Characteristic.TargetHeatingCoolingState.OFF,
-  'temperature': 23
+  'temperature': 20 // 68 F
 }
 
 thermostat.getCharacteristic(Characteristic.CurrentHeatingCoolingState)
@@ -127,20 +127,31 @@ thermostat.getCharacteristic(Characteristic.TargetHeatingCoolingState)
     }
   })
 
+function fahrenheitToCelsius(temperature) {
+    return (temperature - 32) / 1.8
+}
+
+function celsiusToFahrenheit(temperature) {
+    return (temperature * 1.8) + 32
+}
+
 thermostat.getCharacteristic(Characteristic.TargetTemperature)
-  .setValue(stateData.temperature)
   .setProps({
     minValue: 16,
-    maxValue: 30
+    maxValue: 30,
+    minStep: 0.5
   })
-  .on('set',function(newInC, callback){
-    const oldInC = stateData.temperature
+  .on('get', function(callback){
+    callback(null, stateData.temperature)
+  })
+  .on('set', function(newInC, callback){
+    const oldInF = Math.round(celsiusToFahrenheit(stateData.temperature))
+    const newInF = Math.round(celsiusToFahrenheit(newInC))
+    newInC = Math.round(fahrenheitToCelsius(newInF) * 0.5) / 0.5
+
     stateData.temperature = newInC
 
-    const oldInF = (oldInC * (9 / 5)) + 32
-    const newInF = (newInC * (9 / 5)) + 32
-
-    console.log('Temperature set to %s (from %s).', newInF, oldInF)
+    console.log('Set temperature to %s (from %s).', newInF, oldInF)
 
     thermostat.getCharacteristic(Characteristic.TargetHeatingCoolingState)
       .setValue(Characteristic.TargetHeatingCoolingState.COOL, function(error){

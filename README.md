@@ -7,13 +7,19 @@ Embedded HomeKit bridge for [ANAVI Infrared pHAT](http://anavi.technology/#produ
 - Install packages. For Raspbian Stretch:
 
 ```shell
-# apt install nodejs-legacy npm lirc i2c-tools
+# apt install nodejs-legacy npm lirc i2c-tools libavahi-compat-libdnssd-dev
 ```
 
-- Enable I2C and create lirc configuration. See [“Setting Up LIRC on the RaspberryPi”](http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/).
+- Enable I2C
 - Enable LIRC module overlay. Update `/etc/lirc/lirc_options.conf` and `/etc/lirc/hardware.conf`.
-- Reboot.
-- Create LIRC configuration. See [manual](http://www.lirc.org/html/irrecord.html).
+- Reboot
+- Create LIRC configuration
+
+### Further reading
+
+- [“Setting Up LIRC on the RaspberryPi”](http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/)
+- [“LIRC - Configuration guide”](http://www.lirc.org/html/configuration-guide.html)
+- [“LIRC - `irrecord` manual”](http://www.lirc.org/html/irrecord.html)
 
 ## Commands
 

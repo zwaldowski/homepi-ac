@@ -63,12 +63,12 @@ $ git clone https://github.com/zwaldowski/homepi-ac.git
 $ cd homepi-ac
 # mkdir /var/lib/homekit
 # npm install -g --prefix /var/lib/homekit
-# useradd —system homekit
+# useradd —-system homekit
 # usermod -a -G i2c homekit
 # chown -R homekit /var/lib/homekit
-# cp data/homepi-ac.defaults-linux /etc/default/homepi-ac
+# cp data/etc-default-homepi-ac.defaults-sample /etc/default/homepi-ac
 # nano /etc/default/homepi-ac
-# cp data/homepi-ac.service-linux /etc/systemd/system/homepi-ac.service
+# cp data/etc-systemd-system-homepi-ac.service-sample /etc/systemd/system/homepi-ac.service
 # systemctl daemon-reload
 # systemctl enable homepi-ac
 # systemctl start homepi-ac

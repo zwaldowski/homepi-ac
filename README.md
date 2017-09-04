@@ -1,6 +1,10 @@
-# homepi-ac
+# HomePi AC
 
-Embedded HomeKit bridge for [ANAVI Infrared pHAT](http://anavi.technology/#products) (personal use).
+Investigation into the use of [ANAVI Infrared pHAT](http://anavi.technology/#products) to bridge a “dumb” air conditioner into HomeKit.
+
+This code has been ported into the much more extensible [Homebridge](https://github.com/nfarina/homebridge) as the plugin [`homebridge-anavi-infrared-aircon`](https://github.com/zwaldowski/homebridge-anavi-infrared-aircon). Prefer its use instead.
+
+This server was designed and tested on [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/).
 
 ## Dependencies
 
